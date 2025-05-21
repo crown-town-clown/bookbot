@@ -17,5 +17,17 @@ def num_chars():
 			chars[char] += 1
 	return chars
 
+def sort_on(dict):
+	return dict["num"]
 
+def sort_chars():
+	chars = num_chars()
+	list_of_chars = []
+	for char in chars:
+		char_dict = {}
+		char_dict["char"] = char
+		char_dict["num"] = chars[char]
+		list_of_chars.append(char_dict)
+	list_of_chars.sort(reverse=True, key=sort_on)
+	return list_of_chars
 
