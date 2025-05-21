@@ -1,15 +1,15 @@
-def get_book_text(file_path):
-	with open(file_path) as f:
+def get_book_text(path_to_book):
+	with open(path_to_book) as f:
 		file_contents = f.read()
 	return file_contents
 
-def num_words():
-	words = get_book_text("books/frankenstein.txt").split()
+def num_words(path_to_book):
+	words = get_book_text(path_to_book).split()
 	return len(words) 
 
-def num_chars():
+def num_chars(path_to_book):
 	chars = {}
-	book_text = get_book_text("books/frankenstein.txt").lower()
+	book_text = get_book_text(path_to_book).lower()
 	for char in book_text:
 		if char not in chars:
 			chars[char] = 1			
@@ -20,8 +20,8 @@ def num_chars():
 def sort_on(dict):
 	return dict["num"]
 
-def sort_chars():
-	chars = num_chars()
+def sort_chars(path_to_book):
+	chars = num_chars(path_to_book)
 	list_of_chars = []
 	for char in chars:
 		char_dict = {}
